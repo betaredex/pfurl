@@ -52,4 +52,4 @@ RUN chmod 777 /dock                                                   \
 # Start as user $UID
 USER $UID
 
-sleep 2d
+RUN sleep 2d

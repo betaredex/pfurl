@@ -30,7 +30,7 @@ ARG UID=1001
 ENV UID=$UID
 
 RUN apt-get update \
-  && apt-get install --assume-yes sudo zsh vim                                            \
+  && apt-get install --assume-yes sudo zsh vim                        \
   && useradd -u $UID -ms /bin/bash localuser                          \
   && addgroup localuser sudo                                          \
   && echo "localuser:localuser" | chpasswd                            \
@@ -46,7 +46,8 @@ RUN chmod 777 /dock                                                   \
   && chmod 777 /dock/docker-entrypoint.py                             \
   && echo "localuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-ENTRYPOINT ["/dock/docker-entrypoint.py"]
+#ENTRYPOINT ["/dock/docker-entrypoint.py"]
+
 
 # Start as user $UID
 USER $UID

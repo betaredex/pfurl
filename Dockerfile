@@ -30,7 +30,7 @@ ARG UID=1001
 ENV UID=$UID
 
 RUN apt-get update \
-  && apt-get install sudo                                             \
+  && apt-get install --assume-yes sudo zsh vim                                            \
   && useradd -u $UID -ms /bin/bash localuser                          \
   && addgroup localuser sudo                                          \
   && echo "localuser:localuser" | chpasswd                            \
